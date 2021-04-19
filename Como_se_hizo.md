@@ -15,3 +15,14 @@ Las encuestas fueron aplicadas en las Ferias anuales del 2016 al 2019 con un pro
 
 *Limpieza, análisis y visualización de las encuestas*
 Los resultados de las encuestas de cada año se bajaron de las plataformas de KoBoToolbox o KoBo-Conabio en formato de archivo de Excel. Se hizo una limpieza de los datos previo a su análisis con los paquetes de R (R Core Team, 2019): ‘readxl’ (Wickham y Bryan, 2019), ‘tidyverse’ (Wickham et al., 2019), ‘dplyr’ (Wickham et al., 2021), ‘tidyr’ (Wickham, 2021) y ‘stringr’ (Wickham, 2019). Para la visualización de los datos se utilizó ‘ggplot2’ (Wickham, 2016), ‘ggrepel’ (Slowikowski, 2021), ‘ggthemes’ (Arnold, 2021). Toda la limpieza, análisis y visualización se realizó en R. Los scripts están disponibles en https://github.com/APonce73/feria_agrobiodiversidad.
+
+Referencias 
+Arnold, J.B. 2021. ggthemes: Extra Themes, Scales and Geoms for 'ggplot2'. R package version 4.2.4. https://CRAN.R-project.org/package=ggthemes
+R Core Team. 2019. R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
+Slowikowski, K. 2021. ggrepel: Automatically Position Non-Overlapping Text Labels with  'ggplot2'. R package version 0.9.1. https://CRAN.R-project.org/package=ggrepel
+Wickham, H. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
+Wickham, H., J. Bryan. 2019. readxl: Read Excel Files. R package version 1.3.1. https://CRAN.R-project.org/package=readxl
+Wickham et al. 2019. Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686.
+Wickham, H. François R., Henry L. y K. Müller. 2021. dplyr: A Grammar of Data Manipulation. R package version 1.0.5. https://CRAN.R-project.org/package=dplyr.
+Wickham H. 2021. tidyr: Tidy Messy Data. R package version 1.1.3. https://CRAN.R-project.org/package=tidyr.
+Wickham H. 2019. stringr: Simple, Consistent Wrappers for Common String Operations. R package version 1.4.0. https://CRAN.R-project.org/package=stringr 
