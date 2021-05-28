@@ -25,7 +25,7 @@ Distancia2 <- Distancia %>%
 
 write.xlsx(Distancia, file = paste0("datos/", "Cuau_info.xlsx"))
 
-theme_set(theme_minimal(base_size = 12, base_family = "Times New Roman"))
+theme_set(theme_minimal(base_size = 16, base_family = "Times New Roman"))
 
 Fig1 <- ggplot(data = Distancia) +
     geom_point(aes(x = 0, y = Altitud_origen), size = 4, colour = "#264653") +
@@ -36,19 +36,24 @@ Fig1 <- ggplot(data = Distancia) +
     geom_curve(data = Distancia2, aes(x = 0, y = Altitud_origen, xend = Km_recorridos, yend = Altitud_destino),
                color = "#FF5733",
                curvature = 0.1, arrow = arrow(length = unit(0.01, "npc")), size = 2) +
-    geom_text_repel(aes(x = 0, y = Altitud_origen, label = short_name_origen),
-                    min.segment.length = 0, seed = 42, box.padding = 0.7) +
-    geom_text_repel(aes(x = Km_recorridos, y = Altitud_destino, label = short_name_destino),
-                    min.segment.length = 0, seed = 42, box.padding = 0.7,
-                    nudge_x = 0.15, nudge_y = 1) +
-    #theme_minimal() +
+    geom_text_repel(aes(x = 0, y = Altitud_origen, label = Comunidad_origen)) +
+    #geom_text_repel(aes(x = Km_recorridos, y = Altitud_destino, label = Comunidad_destino)) +
+    #geom_text_repel(aes(x = 0, y = Altitud_origen, label = Comunidad_origen),
+    #                min.segment.length = 0, seed = 42, box.padding = 0.7,
+    #                nudge_x = -2, nudge_y = -2) +
+    geom_text_repel(aes(x = Km_recorridos, y = Altitud_destino, label = Comunidad_destino),
+                    min.segment.length = 0, seed = 42, box.padding = -0.3,
+                    nudge_x = 23, nudge_y = 4) +
+    xlim(0, 500) +
+    theme_minimal() +
     theme(
         legend.position = "none")
 
 
-Fig1 + labs(title = "b) Relación entre la altitud* (eje vertical) y la distancia recorrida** (eje horizontal)\n de la semilla de maíz",
+Fig1 + labs(title = "b) Relación entre la altitud (eje vertical en metros*) y la distancia recorrida (eje horizontal en kilómetros) de la semilla de maíz",
             x = "", 
          y = "",
-         caption = "* metros sobre el nivel del mar\n ** en kilómetros") 
+         caption = "* metros sobre el nivel del mar") +
+    theme(plot.caption = element_text(hjust =  0))
 
-ggsave("figuras/Figura7.jpeg", width = 12, height = 8, device = "jpeg", dpi = 600)
+ggsave("figuras/Figura7.jpeg", width = 15, height = 13, device = "jpeg", dpi = 600)
